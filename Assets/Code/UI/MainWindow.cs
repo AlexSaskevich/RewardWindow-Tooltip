@@ -68,6 +68,7 @@ namespace Code.UI
                 new(MakeTitle(10), MakeDesc(10), _icons[Random.Range(0, _icons.Length)]),
             });
 
+            Hide();
 
             RewardsWindow rewardsWindow = Get<RewardsWindow>();
             rewardsWindow.SetArgs(rewardWindowArgs);
@@ -82,6 +83,8 @@ namespace Code.UI
                 new(MakeTitle(2), MakeDesc(2), _icons[Random.Range(0, _icons.Length)]),
                 new(MakeTitle(3), MakeDesc(3), _icons[Random.Range(0, _icons.Length)]),
             });
+
+            Hide();
 
             RewardsWindow rewardsWindow = Get<RewardsWindow>();
             rewardsWindow.SetArgs(rewardWindowArgs);

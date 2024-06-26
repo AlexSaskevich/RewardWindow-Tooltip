@@ -32,11 +32,13 @@ namespace Code.UI.TooltipLogic
                 await Task.Yield();
             }
 
+            eventData.pointerDrag = null;
             Triggered?.Invoke();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            BaseWindow.Get<TooltipWindow>().Hide();
             _cancellationTokenSource?.Cancel();
         }
     }

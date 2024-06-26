@@ -18,14 +18,7 @@ namespace Code.UI.TooltipLogic
             _icon.sprite = args.Icon;
             _title.text = args.Title;
             _description.text = args.Description;
-        }
-
-        private void Update()
-        {
-            if (Input.GetMouseButton(0) == false)
-            {
-                Hide();
-            }
+            _textContainerFitter.SetSize();
         }
 
         protected override void OnHide()

@@ -12,6 +12,8 @@ namespace Code.UI.RewardWindowLogic
         [SerializeField] private Button _closeButton;
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private HorizontalLayoutGroup _horizontalLayoutGroup;
+        [SerializeField] private int _minViewCountForScroll = 7;
+        [SerializeField] private ScrollRect _scrollRect;
 
         private List<RewardItemView> _rewardItemViews;
 
@@ -43,12 +45,15 @@ namespace Code.UI.RewardWindowLogic
                 InventoryItem inventoryItem = items[i];
                 rewardItemView.Set(inventoryItem.Title, inventoryItem.Description, inventoryItem.Icon);
             }
+
+            _scrollRect.enabled = items.Count >= _minViewCountForScroll;
         }
 
         protected override void OnHide()
         {
             _rewardItemViews.ForEach(x => Destroy(x.gameObject));
             _rewardItemViews?.Clear();
+            Get<MainWindow>().Show();
         }
     }
 }

@@ -4,6 +4,8 @@ namespace Code.UI
 {
     public abstract class BaseWindow : MonoBehaviour
     {
+        [SerializeField] private Canvas _canvas;
+
         private WindowArgs _windowArgs;
 
         public static TWindow Get<TWindow>() where TWindow : BaseWindow
@@ -13,7 +15,7 @@ namespace Code.UI
 
         protected virtual void Awake()
         {
-            gameObject.SetActive(false);
+            _canvas.enabled = false;
         }
 
         public void SetArgs(WindowArgs args)
@@ -24,13 +26,13 @@ namespace Code.UI
         public void Show()
         {
             OnShow();
-            gameObject.SetActive(true);
+            _canvas.enabled = true;
         }
 
         public void Hide()
         {
             OnHide();
-            gameObject.SetActive(false);
+            _canvas.enabled = false;
         }
 
         protected TArgs GetArgs<TArgs>() where TArgs : WindowArgs

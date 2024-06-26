@@ -28,12 +28,7 @@ namespace Code.UI.TooltipLogic
             LayoutRebuilder.ForceRebuildLayoutImmediate(_rectTransformForChange);
         }
 
-        private void OnEnable()
-        {
-            SetSize();
-        }
-
-        private void SetSize()
+        public void SetSize()
         {
             if (_text == null)
             {
